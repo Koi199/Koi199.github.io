@@ -9,12 +9,12 @@ btn.addEventListener('click', () => {
   if (!isAnimating) {
     // Resume playback from current point
     svgEl.unpauseAnimations();
-    btn.textContent = 'Pause';
+    btn.textContent = 'PAUSE';
     btn.style.backgroundColor = '#f44336'; // green while running
   } else {
     // Pause in place
     svgEl.pauseAnimations();
-    btn.textContent = 'Resume';
+    btn.textContent = 'RESUME';
     btn.style.backgroundColor = '#7acc7dff'; // red while paused
   }
   isAnimating = !isAnimating;
