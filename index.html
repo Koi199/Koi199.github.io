@@ -4,64 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You Svante!</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f4f7fb;
-      font-family: Arial, sans-serif;
-      flex-direction: column;
-    }
-
-    h1 {
-      color: #003f87; /* Doosan dark blue */
-      margin-top: 30px;
-      font-size: 2rem;
-    }
-
-    svg {
-      width: 250px;
-      height: auto;
-    }
-
-    /* Animation for waving the robot arm */
-    .forearm {
-      transform-origin: top left;
-      animation: wave 2s infinite alternate ease-in-out;
-    }
-
-    @keyframes wave {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-25deg); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <!-- Base -->
-    <rect x="85" y="150" width="30" height="30" rx="5" fill="#888"/>
 
-    <!-- Shoulder -->
-    <circle cx="100" cy="150" r="15" fill="#0072c6"/> <!-- Doosan blue -->
+  <svg width="400" height="400" viewBox="0 0 400 400"
+       xmlns="http://www.w3.org/2000/svg">
 
-    <!-- Upper arm -->
-    <rect x="95" y="100" width="10" height="50" rx="5" fill="#0072c6"/>
+    <g transform="translate(200,320)">
+        
+        <!-- SHOULDER GROUP: translate + rotate -->
+        <g id="shoulder" transform="translate(0,-30)">
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                values="-30;30;-30"
+                keyTimes="0;0.5;1"
+                keySplines="0.42 0 0.58 1"
+                dur="4s"
+                repeatCount="indefinite"
+                
+            />
 
-    <!-- Elbow joint -->
-    <circle cx="100" cy="100" r="12" fill="#003f87"/>
+            <rect x="-10" y="-100" width="20" height="100"
+                    fill="#CBCBCB" stroke="rgb(0, 0, 0)" stroke-width="2" rx="4"/>
 
-    <!-- Forearm (animated) -->
-    <g class="forearm">
-      <rect x="95" y="50" width="10" height="50" rx="5" fill="#0072c6"/>
-      <circle cx="100" cy="50" r="10" fill="#003f87"/>
-      <!-- Gripper -->
-      <rect x="85" y="35" width="8" height="15" fill="#666"/>
-      <rect x="107" y="35" width="8" height="15" fill="#666"/>
+            <!-- ELBOW BASE NESTED INSIDE SHOULDER -->
+            <g id="elbow-base" transform="translate(0,-100)">
+                <g id="elbow">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        values="-30;30;-30"
+                        keyTimes="0;0.5;1"
+                        keySplines="0.42 0 0.58 1"
+                        dur="4s"
+                        repeatCount="indefinite"
+                        
+                    />
+
+                    <rect x="-8" y="-80" width="16" height="80"
+                            fill="#314060" stroke="rgb(0, 0, 0)" stroke-width="2" rx="3"/>
+
+                    <!-- Elbow pivot cover -->
+                    <circle cx="0" cy="0" r="10"
+                            fill="#314060" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4"
+                            fill="#CBCBCB" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+
+                    <!-- WRIST & GRIPPER… -->
+                    <g id="wrist" transform="translate(0,-80)">
+                        <!-- Gripper -->
+                        <g id="gripper" class="gripper-arm">
+                            <rect x="-12" y="-8" width="24" height="16"
+                                fill="#CBCBCB" stroke="#222" stroke-width="2"/>
+                            <path d="M -12,-8 L -18,-8 L -18,-32 L -14,-32 L -14,-12 L -12,-12 Z"
+                                fill="#ccc" stroke="#000" stroke-width="2"/>
+                            <path d="M 12,-8 L 18,-8 L 18,-32 L 14,-32 L 14,-12 L 12,-12 Z"
+                                fill="#ccc" stroke="#000" stroke-width="2"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
     </g>
+
+    <!-- Base (drawn last of the arm pieces, just before the joint covers) -->
+    <g id="base" transform="translate(200,350)">
+        <rect
+        x="-30" y="-40"
+        width="60" height="40"
+        fill="#314060"
+        stroke="#222"
+        stroke-width="2"
+        rx="5"
+        />
+    </g>
+
+    <!-- Joint covers (drawn on top of everything) -->
+    <g id="joint-covers">
+      <!-- Shoulder pivot cover -->
+      <g transform="translate(200,350) translate(0,-30) rotate(-30)">
+        <circle r="15" fill="#314060" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        <circle r="7" fill="#CBCBCB" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+      </g>
+    </g>
+
   </svg>
 
-  <h1>Thank You Svante Automation Team!</h1>
+  <button id="cycle-btn">Cycle Start</button>
+  <h1>Thank You Svante Manufacturing Team!</h1>
+  <p>I had an amazing experience working with all of you.</p>
+  <p>Wishing y’all nothing but the best — see y'all soon 😁</p>
+  <p> - Kyle</p>
+  <p class="ps-text">P.S. This is supposed to be robot arm waving good-bye ^^</p>
+
+  <script src="script.js"></script>
 </body>
 </html>
+

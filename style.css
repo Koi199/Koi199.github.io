@@ -1,0 +1,44 @@
+body {
+  background: #ffffff;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.robot-arm {
+  width: 350px;
+  height: 350px;
+  margin-top: 30px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));
+}
+
+h1 {
+  color: #08B1C9;
+  margin-top: 20px;
+  font-size: 2em;
+}
+
+button#cycle-btn {
+  background: #08B1C9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.1em;
+  margin-top: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #003f8722;
+  transition: background 0.2s;
+  margin-bottom: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+button#cycle-btn:hover {
+  background: #005fa3;
+}
+
+.ps-text {
+  font-size: 0.8em; /* 80% of normal paragraph size */
+  color: #555;      /* softer color for subtlety */
+  margin-top: -0.5em;
+}
