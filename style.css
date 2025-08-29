@@ -18,8 +18,8 @@ h1 {
 }
 
 button#cycle-btn {
-  background: #08B1C9;
-  color: #fff;
+  background: #afb5b6;
+  color: black;
   border: none;
   border-radius: 8px;
   padding: 12px 32px;
@@ -34,7 +34,7 @@ button#cycle-btn {
 }
 
 button#cycle-btn:hover {
-  background: #005fa3;
+  background: #08B1C9;
 }
 
 .ps-text {

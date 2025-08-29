@@ -15,7 +15,7 @@ btn.addEventListener('click', () => {
     // Pause in place
     svgEl.pauseAnimations();
     btn.textContent = 'Resume';
-    btn.style.backgroundColor = '#4CAF50'; // red while paused
+    btn.style.backgroundColor = '#7acc7dff'; // red while paused
   }
   isAnimating = !isAnimating;
 });
